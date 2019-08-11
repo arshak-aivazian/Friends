@@ -1,18 +1,21 @@
 package com.example.friends.adapters
 
-import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.friends.R
-import com.example.friends.activities.FriendsListActivity
 import com.example.friends.pojo.Friend
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.friend_item.view.*
 
 class FriendsAdapter: RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
 
+    interface FriendsListener{
+        fun onSelectFriend(friend: Friend)
+    }
+
+    var listener : FriendsListener?=null
     private var friendsList: ArrayList<Friend> = ArrayList()
 
     fun setupFriends(arrayList: ArrayList<Friend>) {
@@ -33,11 +36,11 @@ class FriendsAdapter: RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
         itemViewHolder.bind(friendsList[position])
     }
 
-    class FriendViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class FriendViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         init {
             itemView.setOnClickListener {
-
+                listener?.onSelectFriend(friendsList[adapterPosition])
             }
         }
 
