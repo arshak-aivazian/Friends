@@ -1,4 +1,4 @@
-package com.example.friends.helpers
+package com.example.friends
 
 import android.app.Application
 import com.vk.sdk.VKSdk
