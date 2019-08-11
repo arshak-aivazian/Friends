@@ -5,20 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.friends.R
-import com.example.friends.pojo.Friend
+import com.example.friends.model.entity.VkFriend
+import com.example.friends.model.entity.VkFriendResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.friend_item.view.*
 
 class FriendsAdapter: RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
 
     interface FriendsListener{
-        fun onSelectFriend(friend: Friend)
+        fun onSelectFriend(vkFriend: VkFriend)
     }
 
     var listener : FriendsListener?=null
-    private var friendsList: ArrayList<Friend> = ArrayList()
+    private var friendsList: ArrayList<VkFriend> = ArrayList()
 
-    fun setupFriends(arrayList: ArrayList<Friend>) {
+    fun setupFriends(arrayList: List<VkFriend>) {
         friendsList.clear()
         friendsList.addAll(arrayList)
         notifyDataSetChanged()
@@ -44,9 +45,9 @@ class FriendsAdapter: RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
             }
         }
 
-        fun bind(friend: Friend){
-            Picasso.get().load(friend.avatar).into(itemView.friends_civ_avatar)
-            itemView.textViewFriendName.text = "${friend.name} ${friend.secondName}"
+        fun bind(vkFriendResponse: VkFriend){
+            //Picasso.get().load(vkFriendResponse.avatar).into(itemView.friends_civ_avatar)
+            itemView.textViewFriendName.text = "${vkFriendResponse.firstName} ${vkFriendResponse.lastName}"
         }
 
     }
