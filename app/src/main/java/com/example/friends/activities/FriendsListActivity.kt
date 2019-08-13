@@ -24,11 +24,14 @@ class FriendsListActivity : MvpAppCompatActivity(), FriendsListView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_friends_list)
-
-
-
         recyclreViewFriends.layoutManager = LinearLayoutManager(this, OrientationHelper.VERTICAL, false)
         recyclreViewFriends.adapter = adapter
+
+        adapter.setFriendsListener(object : FriendsListener {
+            override fun onSelectFriend(friend: VkFriend) {
+                friendsListPresenter.onFriendSelected(friend)
+            }
+        })
     }
 
     override fun showError(text: String) {
@@ -37,17 +40,9 @@ class FriendsListActivity : MvpAppCompatActivity(), FriendsListView {
 
     override fun setupFriendsList(friendsList: List<VkFriend>) {
         adapter.setupFriends(friendsList)
-
-
     }
-    override fun showFriendDetail(friendsList: List<VkFriend>) {
-        adapter.setFriendsListener(object : FriendsListener {
-            override fun onSelectFriend(position: Int) {
-                val intent = Intent(this@FriendsListActivity, FriendDetailActivity::class.java)
-                intent.putExtra("friendObject", friendsList.get(position))
 
-                startActivity(intent)
-            }
-        })
+    override fun showFriendDetail(friend: VkFriend) {
+        FriendDetailActivity.startActivity(this,friend)
     }
 }

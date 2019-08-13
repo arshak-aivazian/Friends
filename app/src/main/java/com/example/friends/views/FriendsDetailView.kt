@@ -8,5 +8,4 @@ import com.example.friends.model.entity.VkFriend
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface FriendsDetailView:MvpView {
     fun showFriendInfo(userName: String, avatar: String)
-
 }

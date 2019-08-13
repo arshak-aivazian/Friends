@@ -14,7 +14,7 @@ class FriendsAdapter: RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
     private lateinit var listener : FriendsListener
 
     interface FriendsListener{
-        fun onSelectFriend(posiotion: Int)
+        fun onSelectFriend(friend: VkFriend)
 
     }
 
@@ -47,7 +47,7 @@ class FriendsAdapter: RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
 
         init {
             itemView.setOnClickListener {
-                listener?.onSelectFriend(adapterPosition)
+                listener.onSelectFriend(friendsList[adapterPosition])
             }
         }
 

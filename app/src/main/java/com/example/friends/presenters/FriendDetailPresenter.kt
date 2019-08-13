@@ -6,12 +6,14 @@ import com.example.friends.model.entity.VkFriend
 import com.example.friends.views.FriendsDetailView
 
 @InjectViewState
-class FriendDetailPresenter: MvpPresenter<FriendsDetailView>(){
-    fun setFriendDetail(friend: VkFriend){
+class FriendDetailPresenter(
+    private val friend: VkFriend
+) : MvpPresenter<FriendsDetailView>() {
 
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
         val userName = "${friend.firstName} ${friend.lastName}"
         val photo = friend.photo_100
-
         viewState.showFriendInfo(userName, photo)
     }
 }

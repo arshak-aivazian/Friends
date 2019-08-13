@@ -2,6 +2,7 @@ package com.example.friends.presenters
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
+import com.example.friends.model.entity.VkFriend
 import com.example.friends.model.entity.VkFriendResponse
 import com.example.friends.model.repository.FriendRepository
 import com.example.friends.views.FriendsListView
@@ -23,9 +24,12 @@ class FriendsListPresenter: MvpPresenter<FriendsListView>() {
 
                 override fun success(result: VkFriendResponse) {
                     viewState?.setupFriendsList(result.items)
-                    viewState?.showFriendDetail(result.items)
                 }
             })
+    }
+
+    fun onFriendSelected(friend: VkFriend){
+        viewState?.showFriendDetail(friend)
     }
 
 }
