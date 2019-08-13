@@ -12,5 +12,5 @@ interface FriendsListView: MvpView {
 
     fun showError(text: String)
     fun setupFriendsList(friendsList: List<VkFriend>)
-    fun showFriendDetail(id: Int)
+    fun showFriendDetail(friendsList: List<VkFriend>)
 }

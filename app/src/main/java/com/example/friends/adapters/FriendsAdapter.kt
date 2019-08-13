@@ -6,17 +6,23 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.friends.R
 import com.example.friends.model.entity.VkFriend
-import com.example.friends.model.entity.VkFriendResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.friend_item.view.*
 
 class FriendsAdapter: RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
 
+    private lateinit var listener : FriendsListener
+
     interface FriendsListener{
-        fun onSelectFriend(vkFriend: VkFriend)
+        fun onSelectFriend(posiotion: Int)
+
     }
 
-    var listener : FriendsListener?=null
+    fun setFriendsListener(listener: FriendsListener){
+        this.listener = listener
+    }
+
+
     private var friendsList: ArrayList<VkFriend> = ArrayList()
 
     fun setupFriends(arrayList: List<VkFriend>) {
@@ -41,13 +47,15 @@ class FriendsAdapter: RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
 
         init {
             itemView.setOnClickListener {
-                listener?.onSelectFriend(friendsList[adapterPosition])
+                listener?.onSelectFriend(adapterPosition)
             }
         }
 
         fun bind(vkFriendResponse: VkFriend){
-            //Picasso.get().load(vkFriendResponse.avatar).into(itemView.friends_civ_avatar)
+
+            Picasso.get().load(vkFriendResponse.photo_100).into(itemView.civAvatar)
             itemView.textViewFriendName.text = "${vkFriendResponse.firstName} ${vkFriendResponse.lastName}"
+            itemView.textViewOnline.text = if (vkFriendResponse.online == 1) "onLine" else "offLine"
         }
 
     }

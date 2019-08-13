@@ -23,6 +23,7 @@ class FriendsListPresenter: MvpPresenter<FriendsListView>() {
 
                 override fun success(result: VkFriendResponse) {
                     viewState?.setupFriendsList(result.items)
+                    viewState?.showFriendDetail(result.items)
                 }
             })
     }

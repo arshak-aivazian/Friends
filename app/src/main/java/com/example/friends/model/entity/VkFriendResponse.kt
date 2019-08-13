@@ -2,6 +2,7 @@ package com.example.friends.model.entity
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class VkFriendResponse(
     @field:SerializedName("count")
@@ -10,4 +11,4 @@ data class VkFriendResponse(
     @field:SerializedName("items")
     @Expose
     val items: List<VkFriend>
-)
+): Serializable

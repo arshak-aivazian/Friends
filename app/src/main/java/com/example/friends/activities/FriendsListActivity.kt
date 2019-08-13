@@ -9,8 +9,8 @@ import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.example.friends.R
 import com.example.friends.adapters.FriendsAdapter
+import com.example.friends.adapters.FriendsAdapter.FriendsListener
 import com.example.friends.model.entity.VkFriend
-import com.example.friends.model.entity.VkFriendResponse
 import com.example.friends.presenters.FriendsListPresenter
 import com.example.friends.views.FriendsListView
 import kotlinx.android.synthetic.main.activity_friends_list.*
@@ -24,6 +24,9 @@ class FriendsListActivity : MvpAppCompatActivity(), FriendsListView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_friends_list)
+
+
+
         recyclreViewFriends.layoutManager = LinearLayoutManager(this, OrientationHelper.VERTICAL, false)
         recyclreViewFriends.adapter = adapter
     }
@@ -34,10 +37,17 @@ class FriendsListActivity : MvpAppCompatActivity(), FriendsListView {
 
     override fun setupFriendsList(friendsList: List<VkFriend>) {
         adapter.setupFriends(friendsList)
+
+
     }
-    override fun showFriendDetail(id: Int) {
-        val intent = Intent(this, FriendDetailActivity::class.java)
-        intent.putExtra("id", id)
-        startActivity(intent)
+    override fun showFriendDetail(friendsList: List<VkFriend>) {
+        adapter.setFriendsListener(object : FriendsListener {
+            override fun onSelectFriend(position: Int) {
+                val intent = Intent(this@FriendsListActivity, FriendDetailActivity::class.java)
+                intent.putExtra("friendObject", friendsList.get(position))
+
+                startActivity(intent)
+            }
+        })
     }
 }

@@ -18,6 +18,7 @@ class MainActivity : MvpAppCompatActivity(), LoginView {
     @InjectPresenter
     lateinit var loginPresenter: LoginPresenter
 
+    //не понятно
     private val authCallback = object : VKAuthCallback{
         override fun onLogin(token: VKAccessToken) {
             loginPresenter.onLoginSuccess()
