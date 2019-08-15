@@ -4,8 +4,7 @@ import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
-import com.example.friends.model.entity.VkFriend
-import com.example.friends.model.entity.VkFriendResponse
+import com.example.friends.model.entity.friends.VkFriend
 
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface FriendsListView: MvpView {
@@ -13,4 +12,6 @@ interface FriendsListView: MvpView {
     fun setupFriendsList(friendsList: List<VkFriend>)
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun showFriendDetail(friend: VkFriend)
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun showPhotos(userId: Int)
 }

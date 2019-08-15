@@ -1,5 +1,6 @@
 package com.example.friends.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -18,11 +19,11 @@ class MainActivity : MvpAppCompatActivity(), LoginView {
     @InjectPresenter
     lateinit var loginPresenter: LoginPresenter
 
-    //не понятно
-    private val authCallback = object : VKAuthCallback{
+    private val authCallback = object : VKAuthCallback {
         override fun onLogin(token: VKAccessToken) {
             loginPresenter.onLoginSuccess()
         }
+
         override fun onLoginFailed(errorCode: Int) {
             loginPresenter.onLoginFailed(errorCode.toString())
         }
@@ -42,12 +43,12 @@ class MainActivity : MvpAppCompatActivity(), LoginView {
     }
 
     override fun navigateToLoginScreen() {
-        VK.login(this, setOf(VKScope.OFFLINE,VKScope.FRIENDS))
+        VK.login(this, setOf(VKScope.OFFLINE, VKScope.FRIENDS, VKScope.PHOTOS))
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        VK.onActivityResult(requestCode,resultCode,data,authCallback)
+        VK.onActivityResult(requestCode, resultCode, data, authCallback)
     }
 
 }

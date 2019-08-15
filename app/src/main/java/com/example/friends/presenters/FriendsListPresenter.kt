@@ -2,8 +2,8 @@ package com.example.friends.presenters
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.friends.model.entity.VkFriend
-import com.example.friends.model.entity.VkFriendResponse
+import com.example.friends.model.entity.friends.VkFriend
+import com.example.friends.model.entity.friends.VkFriendResponse
 import com.example.friends.model.repository.FriendRepository
 import com.example.friends.views.FriendsListView
 import com.vk.api.sdk.VKApiCallback
@@ -30,6 +30,11 @@ class FriendsListPresenter: MvpPresenter<FriendsListView>() {
 
     fun onFriendSelected(friend: VkFriend){
         viewState?.showFriendDetail(friend)
+    }
+
+
+    fun navigateToPhotos(id: Int){
+        viewState.showPhotos(id)
     }
 
 }

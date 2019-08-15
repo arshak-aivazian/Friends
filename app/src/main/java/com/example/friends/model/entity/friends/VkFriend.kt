@@ -1,4 +1,4 @@
-package com.example.friends.model.entity
+package com.example.friends.model.entity.friends
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

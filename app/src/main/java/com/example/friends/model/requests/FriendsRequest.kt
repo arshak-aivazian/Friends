@@ -1,10 +1,9 @@
 package com.example.friends.model.requests
 
-import com.example.friends.model.entity.VkFriendResponse
+import com.example.friends.model.entity.friends.VkFriendResponse
 import com.example.friends.model.entity.VkWrapperResponse
 import com.example.friends.utils.fromJson
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.vk.api.sdk.requests.VKRequest
 
 class FriendsRequest(private val gson: Gson) : VKRequest<VkFriendResponse>("friends.get") {
