@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class Size(
-    @field:SerializedName("src")
+    @field:SerializedName("url")
     @Expose
     val src: String,
     @field:SerializedName("width")

@@ -37,7 +37,6 @@ class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
 
     inner class PhotoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun bind(vkPhoto: VkPhoto) {
-
             Picasso.get().load(vkPhoto.sizes?.get(0)?.src).into(itemView.imageViewPhoto)
             itemView.textViewDate.text = "Опубликовано: ${vkPhoto.date}"
         }

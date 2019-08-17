@@ -22,8 +22,7 @@ class VkPhoto(
     val text: String?,
     @field:SerializedName("date")
     @Expose
-    val date: Date,
-
+    val date: Long,
     @field:SerializedName("post_id")
     @Expose
     val postId: Int,

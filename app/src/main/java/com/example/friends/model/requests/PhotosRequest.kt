@@ -10,6 +10,9 @@ class PhotosRequest(userId: Int, private val gson: Gson) : VKRequest<VkPhotoResp
 
     init {
         addParam("owner_id", "$userId")
+        addParam("count",10)
+        addParam("photo_sizes",1)
+
     }
 
     override fun parse(response: String): VkPhotoResponse {
