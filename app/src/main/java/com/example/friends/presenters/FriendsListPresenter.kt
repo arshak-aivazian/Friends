@@ -6,6 +6,7 @@ import com.example.friends.model.entity.friends.VkFriend
 import com.example.friends.model.entity.friends.VkFriendResponse
 import com.example.friends.model.repository.FriendRepository
 import com.example.friends.screen.FriendDetailScreen
+import com.example.friends.screen.PhotoScreen
 import com.example.friends.views.FriendsListView
 import com.vk.api.sdk.VKApiCallback
 import com.vk.api.sdk.exceptions.VKApiExecutionException
@@ -35,7 +36,7 @@ class FriendsListPresenter(private val router: Router): MvpPresenter<FriendsList
     }
 
     fun navigateToPhotos(id: Int){
-        //viewState.showPhotos(id)
+        router.navigateTo(PhotoScreen(id))
     }
 
 }

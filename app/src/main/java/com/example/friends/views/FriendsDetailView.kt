@@ -8,6 +8,4 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface FriendsDetailView:MvpView {
     fun showFriendInfo(userName: String, avatar: String)
-    @StateStrategyType(OneExecutionStateStrategy::class)
-    fun navigateToPhotos(userId: Int)
 }

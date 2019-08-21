@@ -7,9 +7,10 @@ import com.example.friends.model.repository.PhotoRepositiry
 import com.example.friends.views.PhotosView
 import com.vk.api.sdk.VKApiCallback
 import com.vk.api.sdk.exceptions.VKApiExecutionException
+import ru.terrakok.cicerone.Router
 
 @InjectViewState
-class PhotosPresenter(val id: Int) : MvpPresenter<PhotosView>() {
+class PhotosPresenter(private val router: Router, val id: Int) : MvpPresenter<PhotosView>() {
     private val repository = PhotoRepositiry()
 
     override fun onFirstViewAttach() {

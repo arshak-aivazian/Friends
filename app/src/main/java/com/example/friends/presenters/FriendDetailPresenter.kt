@@ -3,10 +3,12 @@ package com.example.friends.presenters
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.friends.model.entity.friends.VkFriend
+import com.example.friends.screen.PhotoScreen
 import com.example.friends.views.FriendsDetailView
+import ru.terrakok.cicerone.Router
 
 @InjectViewState
-class FriendDetailPresenter(
+class FriendDetailPresenter(private val router: Router,
     private val friend: VkFriend
 ) : MvpPresenter<FriendsDetailView>() {
 
@@ -18,6 +20,6 @@ class FriendDetailPresenter(
     }
 
     fun navigateToPhotos(id: Int){
-        viewState.navigateToPhotos(id)
+        router.navigateTo(PhotoScreen(id))
     }
 }

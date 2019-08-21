@@ -1,15 +1,19 @@
 package com.example.friends.adapters
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.friends.R
-import com.example.friends.model.entity.friends.VkFriend
 import com.example.friends.model.entity.photo.VkPhoto
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.friend_item.view.*
 import kotlinx.android.synthetic.main.item_photo.view.*
+import java.text.SimpleDateFormat
+import java.util.*
+
+import kotlin.collections.ArrayList
+
+
 
 class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
 
@@ -22,7 +26,7 @@ class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): PhotosAdapter.PhotoViewHolder {
-        return PhotoViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_photo, parent, false))
+        return PhotoViewHolder(LayoutInflater.from(parent.context).inflate(com.example.friends.R.layout.item_photo, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -38,7 +42,10 @@ class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
     inner class PhotoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun bind(vkPhoto: VkPhoto) {
             Picasso.get().load(vkPhoto.sizes?.get(0)?.src).into(itemView.imageViewPhoto)
-            itemView.textViewDate.text = "Опубликовано: ${vkPhoto.date}"
+
+            val date = Date(vkPhoto.date.toLong()*1000)
+            val formatForDateNow = SimpleDateFormat("E yyyy.MM.dd")
+            itemView.textViewDate.text = "Опубликовано: ${formatForDateNow.format(date)}"
         }
 
     }

@@ -1,10 +1,10 @@
 package com.example.friends.screen
 
-import android.content.Context
-import android.content.Intent
-import com.example.friends.activities.FriendDetailActivity
+import android.os.Bundle
+import com.example.friends.fragments.FriendDetailFragment
 import com.example.friends.model.entity.friends.VkFriend
 import ru.terrakok.cicerone.android.support.SupportAppScreen
+
 
 class FriendDetailScreen(private val friend: VkFriend) : SupportAppScreen() {
 
@@ -12,8 +12,11 @@ class FriendDetailScreen(private val friend: VkFriend) : SupportAppScreen() {
         const val KEY_FRIEND = "KEY_FRIEND"
     }
 
-    override fun getActivityIntent(context: Context?): Intent {
-        return Intent(context, FriendDetailActivity::class.java)
-            .putExtra(KEY_FRIEND, friend)
+    override fun getFragment(): FriendDetailFragment {
+        val fragment = FriendDetailFragment.getNewInstance()
+        val args = Bundle()
+        args.putSerializable(KEY_FRIEND, friend)
+        fragment.arguments = args
+        return fragment
     }
 }
