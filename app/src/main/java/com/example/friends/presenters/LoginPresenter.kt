@@ -11,7 +11,7 @@ import ru.terrakok.cicerone.Router
 
 @InjectViewState
 class LoginPresenter(private val router: Router) : MvpPresenter<LoginView>() {
-
+//      не работает
 //    override fun onFirstViewAttach() {
 //        super.onFirstViewAttach()
 //        if (VK.isLoggedIn()) {

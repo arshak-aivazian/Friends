@@ -21,7 +21,6 @@ import com.vk.api.sdk.auth.VKAuthCallback
 import com.vk.api.sdk.auth.VKAuthParams
 import com.vk.api.sdk.auth.VKScope
 import com.vk.api.sdk.ui.VKWebViewAuthActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : MvpAppCompatFragment(), LoginView {

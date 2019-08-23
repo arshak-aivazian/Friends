@@ -37,12 +37,14 @@
 
 		</LinearLayout>
 
-	<Button
+		<Button
 			android:id="@+id/itemButtonToGroups"
-			android:layout_gravity="center_vertical"
-			android:text="ФОТО"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"/>
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:background="@color/colorPrimaryDark"
+			android:text="@string/photo"
+			android:textColor="@android:color/background_light" />
 
 	</LinearLayout>
 

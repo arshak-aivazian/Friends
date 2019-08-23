@@ -45,7 +45,7 @@ class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
 
             val date = Date(vkPhoto.date.toLong()*1000)
             val formatForDateNow = SimpleDateFormat("E yyyy.MM.dd")
-            itemView.textViewDate.text = "Опубликовано: ${formatForDateNow.format(date)}"
+            itemView.textViewDate.text = "${formatForDateNow.format(date)}"
         }
 
     }

@@ -23,7 +23,7 @@ class VkFriend (
     @field:SerializedName("online")
     @Expose
     val online: Int,
-    @field:SerializedName("photo_100")
+    @field:SerializedName("photo_200_orig")
     @Expose
-    val photo_100: String
+    val photo_200: String
 ) : Serializable

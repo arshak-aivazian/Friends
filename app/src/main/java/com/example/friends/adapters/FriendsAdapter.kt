@@ -1,7 +1,6 @@
 package com.example.friends.adapters
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,11 +33,13 @@ class FriendsAdapter : RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
 
 
     private var friendsList: ArrayList<VkFriend> = ArrayList()
+    private var sourceList: ArrayList<VkFriend> = ArrayList()
 
     fun setupFriends(arrayList: List<VkFriend>) {
-        friendsList.clear()
-        friendsList.addAll(arrayList)
+        sourceList.clear()
+        sourceList.addAll(arrayList)
         notifyDataSetChanged()
+        filter(query = "")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): FriendViewHolder {
@@ -56,6 +57,15 @@ class FriendsAdapter : RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
         itemViewHolder.bind(friendsList[position])
     }
 
+    fun filter(query: String) {
+        friendsList.clear()
+        sourceList.forEach({
+            if((it.firstName?.contains(query, ignoreCase = true)!! )|| (it.lastName?.contains(query, ignoreCase = true)!!))
+                friendsList.add(it)
+        })
+        notifyDataSetChanged()
+    }
+
     inner class FriendViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         init {
@@ -66,7 +76,7 @@ class FriendsAdapter : RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
 
         fun bind(vkFriendResponse: VkFriend) {
 
-            Picasso.get().load(vkFriendResponse.photo_100).into(itemView.civAvatar)
+            Picasso.get().load(vkFriendResponse.photo_200).into(itemView.civAvatar)
             itemView.textViewFriendName.text = "${vkFriendResponse.firstName} ${vkFriendResponse.lastName}"
             itemView.textViewOnline.text = if (vkFriendResponse.online == 1) "onLine" else "offLine"
 

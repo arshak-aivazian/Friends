@@ -3,4 +3,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_login">Нажмите кнопку Войти, чтобы увидеть своих друзей</string>
+    <string name="button_enter">Войти</string>
+    <string name="description_friends_logo">friends logo</string>
+    <string name="hint_search">Введите имя или фамилию</string>
+    <string name="photo">ФОТО</string>
+    <string name="button_all_photos">Все фото</string>
 </resources>

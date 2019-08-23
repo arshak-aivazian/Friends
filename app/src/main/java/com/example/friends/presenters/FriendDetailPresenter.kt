@@ -14,8 +14,8 @@ class FriendDetailPresenter(private val router: Router,
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        val userName = "${friend.firstName} ${friend.lastName}"
-        val photo = friend.photo_100
+        val userName = "${friend.firstName} ${friend.lastName}\n ${friend.city?.title ?: "Город не укаазан"}"
+        val photo = friend.photo_200
         viewState.showFriendInfo(userName, photo)
     }
 

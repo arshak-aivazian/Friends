@@ -2,11 +2,9 @@ package com.example.friends.fragments
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -54,8 +52,8 @@ class FriendDetailFragment : MvpAppCompatFragment(), FriendsDetailView{
         })
     }
 
-    override fun showFriendInfo(userName: String, avatar: String) {
-        textView.text = userName
+    override fun showFriendInfo(info: String, avatar: String) {
+        textView.text = info
         Picasso.get().load(avatar).into(imageViewPhoto)
     }
 }
