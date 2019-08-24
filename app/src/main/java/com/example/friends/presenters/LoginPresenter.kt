@@ -2,15 +2,12 @@ package com.example.friends.presenters
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.friends.screen.FriendListScreen
-import com.example.friends.screen.LoginScreen
 import com.example.friends.views.LoginView
-import com.vk.api.sdk.VK
-import ru.terrakok.cicerone.Router
+
 
 
 @InjectViewState
-class LoginPresenter(private val router: Router) : MvpPresenter<LoginView>() {
+class LoginPresenter() : MvpPresenter<LoginView>() {
 //      не работает
 //    override fun onFirstViewAttach() {
 //        super.onFirstViewAttach()
@@ -24,7 +21,7 @@ class LoginPresenter(private val router: Router) : MvpPresenter<LoginView>() {
     }
 
     fun onLoginSuccess() {
-        router.navigateTo(FriendListScreen())
+        viewState?.navigateTofriendsList()
     }
 
     fun onLoginFailed(error: String) {

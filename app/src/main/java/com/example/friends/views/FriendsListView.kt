@@ -10,4 +10,8 @@ import com.example.friends.model.entity.friends.VkFriend
 interface FriendsListView: MvpView {
     fun showError(text: String)
     fun setupFriendsList(friendsList: List<VkFriend>)
+    @StateStrategyType(value = OneExecutionStateStrategy::class)
+    fun navigateToFriendDetail(friend: VkFriend)
+    @StateStrategyType(value = OneExecutionStateStrategy::class)
+    fun navigateToFriendPhotos(userId: Int)
 }

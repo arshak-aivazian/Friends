@@ -10,18 +10,28 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.friends.MyApp
 import com.example.friends.R
+import com.example.friends.activities.MainActivity
 import com.example.friends.model.entity.friends.VkFriend
 import com.example.friends.presenters.FriendDetailPresenter
-import com.example.friends.screen.FriendDetailScreen
 import com.example.friends.views.FriendsDetailView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_friend_detail.*
 
 class FriendDetailFragment : MvpAppCompatFragment(), FriendsDetailView{
-
     companion object{
-        fun getNewInstance(): FriendDetailFragment{
-            return FriendDetailFragment()
+        val KEY_FRIEND = "KEY_FRIEND"
+
+        fun getNewInstance(friend: VkFriend): FriendDetailFragment{
+            val fragment = FriendDetailFragment()
+            val args = Bundle()
+            args.putSerializable(KEY_FRIEND, friend)
+            fragment.arguments = args
+            return fragment
+        }
+
+        fun toFriendDetailFragment(activity: MainActivity, friend: VkFriend){
+            activity.fragmentManager.beginTransaction().replace(R.id.container, FriendDetailFragment.getNewInstance(friend))
+                .addToBackStack(null).commit()
         }
     }
 
@@ -32,9 +42,8 @@ class FriendDetailFragment : MvpAppCompatFragment(), FriendsDetailView{
 
     @ProvidePresenter
     fun providePresenter() : FriendDetailPresenter {
-        val router = (activity?.application as MyApp).router
-        friend = arguments?.get(FriendDetailScreen.KEY_FRIEND) as VkFriend
-        return FriendDetailPresenter(router, friend)
+        friend = arguments?.get(KEY_FRIEND) as VkFriend
+        return FriendDetailPresenter(friend)
     }
 
     override fun onCreateView(
@@ -55,5 +64,9 @@ class FriendDetailFragment : MvpAppCompatFragment(), FriendsDetailView{
     override fun showFriendInfo(info: String, avatar: String) {
         textView.text = info
         Picasso.get().load(avatar).into(imageViewPhoto)
+    }
+
+    override fun navigateToPotos(userId: Int) {
+        PhotosFragment.toPhotosFragment(activity as MainActivity, userId)
     }
 }

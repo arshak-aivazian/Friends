@@ -5,15 +5,12 @@ import com.arellomobile.mvp.MvpPresenter
 import com.example.friends.model.entity.friends.VkFriend
 import com.example.friends.model.entity.friends.VkFriendResponse
 import com.example.friends.model.repository.FriendRepository
-import com.example.friends.screen.FriendDetailScreen
-import com.example.friends.screen.PhotoScreen
 import com.example.friends.views.FriendsListView
 import com.vk.api.sdk.VKApiCallback
 import com.vk.api.sdk.exceptions.VKApiExecutionException
-import ru.terrakok.cicerone.Router
 
 @InjectViewState
-class FriendsListPresenter(private val router: Router): MvpPresenter<FriendsListView>() {
+class FriendsListPresenter(): MvpPresenter<FriendsListView>() {
 
     private val repository = FriendRepository()
 
@@ -32,11 +29,11 @@ class FriendsListPresenter(private val router: Router): MvpPresenter<FriendsList
     }
 
     fun onFriendSelected(friend: VkFriend){
-        router.navigateTo(FriendDetailScreen(friend))
+        viewState?.navigateToFriendDetail(friend)
     }
 
     fun navigateToPhotos(id: Int){
-        router.navigateTo(PhotoScreen(id))
+        viewState?.navigateToFriendPhotos(id)
     }
 
 }

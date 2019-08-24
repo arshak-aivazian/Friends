@@ -3,7 +3,6 @@ package com.example.friends.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.friends.MyApp
 import com.example.friends.R
+import com.example.friends.activities.MainActivity
 import com.example.friends.presenters.LoginPresenter
 import com.example.friends.views.LoginView
 import com.vk.api.sdk.VK
@@ -25,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : MvpAppCompatFragment(), LoginView {
 
+
     companion object{
         fun getNewInstance(): LoginFragment{
             return LoginFragment()
@@ -33,11 +34,7 @@ class LoginFragment : MvpAppCompatFragment(), LoginView {
 
     @InjectPresenter
     lateinit var loginPresenter: LoginPresenter
-    @ProvidePresenter
-    fun providePresenter() : LoginPresenter {
-        val router = (activity?.application as MyApp).router
-        return LoginPresenter(router)
-    }
+
 
     private val authCallback = object : VKAuthCallback {
         override fun onLogin(token: VKAccessToken) {
@@ -78,5 +75,7 @@ class LoginFragment : MvpAppCompatFragment(), LoginView {
         VK.onActivityResult(requestCode, resultCode, data, authCallback)
     }
 
-
+    override fun navigateTofriendsList() {
+        FriendsListFragment.toFriendsListFragment(activity as MainActivity)
+    }
 }
