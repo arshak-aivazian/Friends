@@ -11,16 +11,13 @@ import ru.terrakok.cicerone.Router
 
 @InjectViewState
 class LoginPresenter(private val router: Router) : MvpPresenter<LoginView>() {
-//      не работает
-//    override fun onFirstViewAttach() {
-//        super.onFirstViewAttach()
-//        if (VK.isLoggedIn()) {
-//            router.navigateTo(FriendListScreen())
-//        }
-//    }
 
     fun onLogin() {
-        viewState?.navigateToLoginScreen()
+        if (VK.isLoggedIn()) {
+            router.navigateTo(FriendListScreen())
+        } else {
+            viewState?.navigateToLoginScreen()
+        }
     }
 
     fun onLoginSuccess() {
