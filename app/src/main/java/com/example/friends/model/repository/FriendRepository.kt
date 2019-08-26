@@ -1,6 +1,6 @@
 package com.example.friends.model.repository
 
-import com.example.friends.model.entity.VkFriendResponse
+import com.example.friends.model.entity.friends.VkFriendResponse
 import com.example.friends.model.requests.FriendsRequest
 import com.google.gson.Gson
 import com.vk.api.sdk.VK

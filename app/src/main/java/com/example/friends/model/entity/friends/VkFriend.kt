@@ -1,9 +1,8 @@
-package com.example.friends.model.entity
+package com.example.friends.model.entity.friends
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
-
 
 class VkFriend (
     @field:SerializedName("id")
@@ -11,21 +10,20 @@ class VkFriend (
     val id: Int,
     @field:SerializedName("first_name")
     @Expose
-    val firstName: String,
+    val firstName: String?,
     @field:SerializedName("last_name")
     @Expose
-    val lastName: String,
+    val lastName: String?,
     @field:SerializedName("domain")
     @Expose
-    val domain: String,
+    val domain: String?,
     @field:SerializedName("city")
     @Expose
-    val city: VkCity,
+    val city: VkCity?,
     @field:SerializedName("online")
     @Expose
     val online: Int,
-
-    @field:SerializedName("photo_100")
+    @field:SerializedName("photo_200_orig")
     @Expose
-    val photo_100: String
+    val photo_200: String
 ) : Serializable

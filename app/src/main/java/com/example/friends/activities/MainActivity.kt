@@ -1,53 +1,53 @@
 package com.example.friends.activities
 
-import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.FragmentManager
 import android.widget.Toast
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
+import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.friends.MyApp
 import com.example.friends.R
-import com.example.friends.presenters.LoginPresenter
+import com.example.friends.fragments.LoginFragment
+import com.example.friends.presenters.MainActivityPresenter
 import com.example.friends.views.LoginView
-import com.vk.api.sdk.VK
-import com.vk.api.sdk.auth.VKAccessToken
-import com.vk.api.sdk.auth.VKAuthCallback
-import com.vk.api.sdk.auth.VKScope
+import com.example.friends.views.MainActivityView
 
-class MainActivity : MvpAppCompatActivity(), LoginView {
+import ru.terrakok.cicerone.NavigatorHolder
+import ru.terrakok.cicerone.android.support.SupportAppNavigator
+
+class MainActivity : MvpAppCompatActivity(), MainActivityView{
+    lateinit var fragmentManager: FragmentManager
+    lateinit var holder: NavigatorHolder
+    lateinit var navigator: SupportAppNavigator
+
     @InjectPresenter
-    lateinit var loginPresenter: LoginPresenter
-
-    //не понятно
-    private val authCallback = object : VKAuthCallback{
-        override fun onLogin(token: VKAccessToken) {
-            loginPresenter.onLoginSuccess()
-        }
-        override fun onLoginFailed(errorCode: Int) {
-            loginPresenter.onLoginFailed(errorCode.toString())
-        }
-    }
+    lateinit var mainActivityPresenter: MainActivityPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        fragmentManager = supportFragmentManager
+
+        holder = (application as MyApp).navigationHolder
+        navigator = SupportAppNavigator(this, fragmentManager, R.id.container)
+
+        mainActivityPresenter.navigateToLoginFragment()
     }
 
-    override fun showError(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+    override fun onResume() {
+        super.onResume()
+        holder.setNavigator(navigator)
     }
 
-    override fun navigateToFriendsListScreen() {
-        startActivity(Intent(this, FriendsListActivity::class.java))
+    override fun onPause() {
+        holder.removeNavigator()
+        super.onPause()
     }
 
-    override fun navigateToLoginScreen() {
-        VK.login(this, setOf(VKScope.OFFLINE,VKScope.FRIENDS))
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        VK.onActivityResult(requestCode,resultCode,data,authCallback)
+    override fun showLoginFragment() {
+        fragmentManager.beginTransaction().add(R.id.container, LoginFragment.getNewInstance()).commit()
     }
 
 }

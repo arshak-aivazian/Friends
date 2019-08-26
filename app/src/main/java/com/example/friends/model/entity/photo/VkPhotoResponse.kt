@@ -1,14 +1,14 @@
-package com.example.friends.model.entity
+package com.example.friends.model.entity.photo
 
+import com.example.friends.model.entity.friends.VkFriend
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
 
-data class VkFriendResponse(
+class VkPhotoResponse (
     @field:SerializedName("count")
     @Expose
     val count: Int,
     @field:SerializedName("items")
     @Expose
-    val items: List<VkFriend>
-): Serializable
+    val items: List<VkPhoto>
+)

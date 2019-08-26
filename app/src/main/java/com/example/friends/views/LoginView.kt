@@ -9,7 +9,5 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 interface LoginView:MvpView {
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun navigateToLoginScreen()
-    @StateStrategyType(OneExecutionStateStrategy::class)
-    fun navigateToFriendsListScreen()
     fun showError(text: String)
 }
