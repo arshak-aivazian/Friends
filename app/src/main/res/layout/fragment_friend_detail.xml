@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.friends.fragments.FriendDetailFragment">
+    tools:context="com.example.friends.ui.screens.friend_detail.FriendDetailFragment">
 
     <ImageView
         android:id="@+id/imageViewPhoto"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,4 +55,4 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.ConstraintLayout>
