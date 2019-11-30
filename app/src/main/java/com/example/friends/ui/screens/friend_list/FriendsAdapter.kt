@@ -1,6 +1,6 @@
 package com.example.friends.ui.screens.friend_list
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import com.example.friends.model.entity.friends.VkFriend
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.friend_item.view.*
 
-class FriendsAdapter : RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
+class FriendsAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
 
     private var friendsListener: FriendsListener? = null
 
@@ -66,7 +66,7 @@ class FriendsAdapter : RecyclerView.Adapter<FriendsAdapter.FriendViewHolder>() {
         notifyDataSetChanged()
     }
 
-    inner class FriendViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class FriendViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
         init {
             itemView.setOnClickListener {

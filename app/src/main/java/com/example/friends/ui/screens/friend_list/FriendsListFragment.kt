@@ -2,8 +2,8 @@ package com.example.friends.ui.screens.friend_list
 
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.OrientationHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.OrientationHelper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -46,7 +46,11 @@ class FriendsListFragment : MvpAppCompatFragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclreViewFriends.layoutManager = LinearLayoutManager(activity, OrientationHelper.VERTICAL, false)
+        recyclreViewFriends.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(
+            activity,
+            androidx.recyclerview.widget.OrientationHelper.VERTICAL,
+            false
+        )
         recyclreViewFriends.adapter = adapter
 
 

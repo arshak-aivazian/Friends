@@ -2,7 +2,7 @@ package com.example.friends.ui.screens.photo
 
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,7 +46,8 @@ class PhotosFragment : MvpAppCompatFragment(), PhotosView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerViewPhotos.layoutManager = LinearLayoutManager(activity)
+        recyclerViewPhotos.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(activity)
         recyclerViewPhotos.adapter = adapter
     }
 

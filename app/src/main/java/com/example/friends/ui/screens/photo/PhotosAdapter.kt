@@ -1,6 +1,6 @@
 package com.example.friends.ui.screens.photo
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +14,7 @@ import kotlin.collections.ArrayList
 
 
 
-class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
+class PhotosAdapter: androidx.recyclerview.widget.RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
 
     private var photosList: ArrayList<VkPhoto> = ArrayList()
 
@@ -38,7 +38,7 @@ class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
     }
 
 
-    inner class PhotoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class PhotoViewHolder(itemView: View): androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView){
         fun bind(vkPhoto: VkPhoto) {
             Picasso.get().load(vkPhoto.sizes?.get(0)?.src).into(itemView.imageViewPhoto)
 

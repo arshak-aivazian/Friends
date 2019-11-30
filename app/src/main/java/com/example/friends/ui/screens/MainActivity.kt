@@ -1,7 +1,7 @@
 package com.example.friends.ui.screens
 
 import android.os.Bundle
-import android.support.v4.app.FragmentManager
+import androidx.fragment.app.FragmentManager
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.example.friends.MyApp
@@ -14,7 +14,7 @@ import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
 class MainActivity : MvpAppCompatActivity(), MainActivityView {
-    lateinit var fragmentManager: FragmentManager
+    lateinit var fragmentManager: androidx.fragment.app.FragmentManager
     lateinit var holder: NavigatorHolder
     lateinit var navigator: SupportAppNavigator
 
