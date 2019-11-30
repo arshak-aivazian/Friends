@@ -1,7 +1,6 @@
-package com.example.friends.adapters
+package com.example.friends.ui.screens.photo
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +24,7 @@ class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): PhotosAdapter.PhotoViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): PhotoViewHolder {
         return PhotoViewHolder(LayoutInflater.from(parent.context).inflate(com.example.friends.R.layout.item_photo, parent, false))
     }
 
@@ -33,7 +32,7 @@ class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder>() {
         return photosList.size
     }
 
-    override fun onBindViewHolder(itemViewHolder: PhotosAdapter.PhotoViewHolder, position: Int) {
+    override fun onBindViewHolder(itemViewHolder: PhotoViewHolder, position: Int) {
 
         itemViewHolder.bind(photosList[position])
     }

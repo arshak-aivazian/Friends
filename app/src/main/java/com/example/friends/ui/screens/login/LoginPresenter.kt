@@ -1,10 +1,8 @@
-package com.example.friends.presenters
+package com.example.friends.ui.screens.login
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.example.friends.screen.FriendListScreen
-import com.example.friends.screen.LoginScreen
-import com.example.friends.views.LoginView
+import com.example.friends.ui.cicerone.FriendListScreen
 import com.vk.api.sdk.VK
 import ru.terrakok.cicerone.Router
 

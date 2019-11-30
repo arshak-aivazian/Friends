@@ -1,7 +1,7 @@
-package com.example.friends.screen
+package com.example.friends.ui.cicerone
 
 
-import com.example.friends.fragments.LoginFragment
+import com.example.friends.ui.screens.login.LoginFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
 class LoginScreen: SupportAppScreen() {

@@ -1,7 +1,7 @@
-package com.example.friends.screen
+package com.example.friends.ui.cicerone
 
 import android.os.Bundle
-import com.example.friends.fragments.FriendDetailFragment
+import com.example.friends.ui.screens.friend_detail.FriendDetailFragment
 import com.example.friends.model.entity.friends.VkFriend
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 

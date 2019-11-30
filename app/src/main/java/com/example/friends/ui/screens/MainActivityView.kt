@@ -1,4 +1,4 @@
-package com.example.friends.views
+package com.example.friends.ui.screens
 
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy

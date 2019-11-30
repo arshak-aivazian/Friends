@@ -1,13 +1,12 @@
-package com.example.friends.presenters
+package com.example.friends.ui.screens.friend_list
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.friends.model.entity.friends.VkFriend
 import com.example.friends.model.entity.friends.VkFriendResponse
 import com.example.friends.model.repository.FriendRepository
-import com.example.friends.screen.FriendDetailScreen
-import com.example.friends.screen.PhotoScreen
-import com.example.friends.views.FriendsListView
+import com.example.friends.ui.cicerone.FriendDetailScreen
+import com.example.friends.ui.cicerone.PhotoScreen
 import com.vk.api.sdk.VKApiCallback
 import com.vk.api.sdk.exceptions.VKApiExecutionException
 import ru.terrakok.cicerone.Router

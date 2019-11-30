@@ -1,9 +1,6 @@
-package com.example.friends.screen
+package com.example.friends.ui.cicerone
 
-import android.content.Context
-import android.content.Intent
-import android.support.v4.app.Fragment
-import com.example.friends.fragments.FriendsListFragment
+import com.example.friends.ui.screens.friend_list.FriendsListFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
 class FriendListScreen : SupportAppScreen(){

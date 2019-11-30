@@ -1,8 +1,8 @@
-package com.example.friends.screen
+package com.example.friends.ui.cicerone
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import com.example.friends.fragments.PhotosFragment
+import com.example.friends.ui.screens.photo.PhotosFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
 class PhotoScreen(private val userId: Int) : SupportAppScreen() {

@@ -1,9 +1,8 @@
-package com.example.friends.fragments
+package com.example.friends.ui.screens.login
 
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,8 +12,6 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.friends.MyApp
 import com.example.friends.R
-import com.example.friends.presenters.LoginPresenter
-import com.example.friends.views.LoginView
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.auth.VKAccessToken
 import com.vk.api.sdk.auth.VKAuthCallback
@@ -26,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_login.*
 class LoginFragment : MvpAppCompatFragment(), LoginView {
 
     companion object{
-        fun getNewInstance(): LoginFragment{
+        fun getNewInstance(): LoginFragment {
             return LoginFragment()
         }
     }

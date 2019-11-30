@@ -1,4 +1,4 @@
-package com.example.friends.fragments
+package com.example.friends.ui.screens.friend_detail
 
 
 import android.os.Bundle
@@ -11,16 +11,15 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.friends.MyApp
 import com.example.friends.R
 import com.example.friends.model.entity.friends.VkFriend
-import com.example.friends.presenters.FriendDetailPresenter
-import com.example.friends.screen.FriendDetailScreen
-import com.example.friends.views.FriendsDetailView
+import com.example.friends.ui.cicerone.FriendDetailScreen
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_friend_detail.*
 
-class FriendDetailFragment : MvpAppCompatFragment(), FriendsDetailView{
+class FriendDetailFragment : MvpAppCompatFragment(),
+    FriendsDetailView {
 
     companion object{
-        fun getNewInstance(): FriendDetailFragment{
+        fun getNewInstance(): FriendDetailFragment {
             return FriendDetailFragment()
         }
     }

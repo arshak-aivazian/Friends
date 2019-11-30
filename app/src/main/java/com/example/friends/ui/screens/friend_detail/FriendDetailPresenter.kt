@@ -1,10 +1,9 @@
-package com.example.friends.presenters
+package com.example.friends.ui.screens.friend_detail
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.friends.model.entity.friends.VkFriend
-import com.example.friends.screen.PhotoScreen
-import com.example.friends.views.FriendsDetailView
+import com.example.friends.ui.cicerone.PhotoScreen
 import ru.terrakok.cicerone.Router
 
 @InjectViewState

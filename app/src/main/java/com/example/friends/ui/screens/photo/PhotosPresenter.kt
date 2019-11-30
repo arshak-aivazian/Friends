@@ -1,10 +1,9 @@
-package com.example.friends.presenters
+package com.example.friends.ui.screens.photo
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.friends.model.entity.photo.VkPhotoResponse
 import com.example.friends.model.repository.PhotoRepositiry
-import com.example.friends.views.PhotosView
 import com.vk.api.sdk.VKApiCallback
 import com.vk.api.sdk.exceptions.VKApiExecutionException
 import ru.terrakok.cicerone.Router

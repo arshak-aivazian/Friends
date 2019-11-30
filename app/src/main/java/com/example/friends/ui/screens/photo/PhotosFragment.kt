@@ -1,9 +1,8 @@
-package com.example.friends.fragments
+package com.example.friends.ui.screens.photo
 
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +12,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.friends.MyApp
 import com.example.friends.R
-import com.example.friends.adapters.PhotosAdapter
 import com.example.friends.model.entity.photo.VkPhoto
-import com.example.friends.presenters.PhotosPresenter
-import com.example.friends.screen.PhotoScreen
-import com.example.friends.views.PhotosView
+import com.example.friends.ui.cicerone.PhotoScreen
 import kotlinx.android.synthetic.main.fragment_photos.*
 
 

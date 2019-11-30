@@ -1,4 +1,4 @@
-package com.example.friends.adapters
+package com.example.friends.ui.screens.friend_list
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

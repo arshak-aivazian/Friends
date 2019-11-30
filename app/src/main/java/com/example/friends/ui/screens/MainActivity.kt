@@ -1,22 +1,19 @@
-package com.example.friends.activities
+package com.example.friends.ui.screens
 
 import android.os.Bundle
 import android.support.v4.app.FragmentManager
-import android.widget.Toast
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
-import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.friends.MyApp
 import com.example.friends.R
-import com.example.friends.fragments.LoginFragment
-import com.example.friends.presenters.MainActivityPresenter
-import com.example.friends.views.LoginView
-import com.example.friends.views.MainActivityView
+import com.example.friends.ui.screens.MainActivityPresenter
+import com.example.friends.ui.screens.MainActivityView
+import com.example.friends.ui.screens.login.LoginFragment
 
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 
-class MainActivity : MvpAppCompatActivity(), MainActivityView{
+class MainActivity : MvpAppCompatActivity(), MainActivityView {
     lateinit var fragmentManager: FragmentManager
     lateinit var holder: NavigatorHolder
     lateinit var navigator: SupportAppNavigator
